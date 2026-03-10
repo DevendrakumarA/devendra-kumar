@@ -1,0 +1,28 @@
+<p>work works!</p>
+<div class="work-section" id="work">
+
+    <div class="work-container section-container">
+
+        <h2>My <span>Work</span></h2>
+
+        <button (click)="goPrev()">Prev</button>
+
+        <button (click)="goNext()">Next</button>
+
+        <div class="carousel-track" [style.transform]="'translateX(-'+currentIndex*100+'%)'">
+
+            <div class="carousel-slide" *ngFor="let project of projects; let i=index">
+
+                <h4>{{project.title}}</h4>
+
+                <p>{{project.category}}</p>
+
+                <img [src]="project.image">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

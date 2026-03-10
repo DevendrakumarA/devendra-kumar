@@ -1,0 +1,37 @@
+<div class="loading-header">
+
+  <a href="#" class="loader-title" data-cursor="disable">
+    RC
+  </a>
+
+</div>
+
+<div class="loading-screen">
+
+  <div class="loading-wrap"
+       [class.loading-clicked]="clicked"
+       (mousemove)="handleMouseMove($event)">
+
+    <div class="loading-button"
+         [class.loading-complete]="loaded">
+
+      <div class="loading-container">
+
+        <div class="loading-content">
+
+          <div class="loading-content-in">
+
+            Loading
+            <span>{{percent}}%</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

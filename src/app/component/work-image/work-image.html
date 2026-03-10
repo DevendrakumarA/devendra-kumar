@@ -1,0 +1,13 @@
+<div class="work-image">
+
+    <a class="work-image-in" [href]="link" target="_blank" (mouseenter)="mouseEnter()" (mouseleave)="isVideo=false"
+        data-cursor="disable">
+
+        <img [src]="image" [alt]="alt">
+
+        <video *ngIf="isVideo" [src]="videoUrl" autoplay muted loop>
+        </video>
+
+    </a>
+
+</div>
