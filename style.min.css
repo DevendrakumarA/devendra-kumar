@@ -980,3 +980,19 @@ footer .social-links a:hover{
     color: #555;
     line-height: 24px;
 }
+
+.success-msg{
+    background:#d4edda;
+    color:#155724;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:5px;
+}
+
+.error-msg{
+    background:#f8d7da;
+    color:#721c24;
+    padding:12px;
+    margin-bottom:15px;
+    border-radius:5px;
+}

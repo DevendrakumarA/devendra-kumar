@@ -603,24 +603,33 @@
                 </div>
                 <div class="column right">
                     <div class="text">Message me</div>
-                    <form action="#">
+                    <div id="responseMsg"></div>
+                    <form action="send-mail.php" method="POST">
+
                         <div class="fields">
+
                             <div class="field name">
-                                <input type="text" placeholder="Name" required>
+                                <input type="text" name="name" placeholder="Name" required>
                             </div>
+
                             <div class="field email">
-                                <input type="email" placeholder="Email" required>
+                                <input type="email" name="email" placeholder="Email" required>
                             </div>
+
                         </div>
+
                         <div class="field">
-                            <input type="text" placeholder="Subject" required>
+                            <input type="text" name="subject" placeholder="Subject" required>
                         </div>
+
                         <div class="field textarea">
-                            <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                            <textarea name="message" cols="30" rows="10" placeholder="Message.." required></textarea>
                         </div>
+
                         <div class="button-area">
-                            <button type="submit">Send message</button>
+                            <button type="submit">Send Message</button>
                         </div>
+
                     </form>
                 </div>
             </div>
@@ -675,6 +684,27 @@
             "MySQL"
         ]
         }
+</script>
+<script>
+
+const urlParams = new URLSearchParams(window.location.search);
+
+const status = urlParams.get('status');
+
+if (status === 'success') {
+
+    document.getElementById('responseMsg').innerHTML =
+        '<div class="success-msg">Message sent successfully!</div>';
+
+}
+
+if (status === 'error') {
+
+    document.getElementById('responseMsg').innerHTML =
+        '<div class="error-msg">Message not sent. Try again!</div>';
+
+}
+
 </script>
 </body>
 
