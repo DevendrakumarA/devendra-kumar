@@ -604,7 +604,11 @@
                 <div class="column right">
                     <div class="text">Message me</div>
                     <div id="responseMsg"></div>
-                    <form action="send-mail.php" method="POST">
+
+                    <form id="contactForm" action="https://formsubmit.co/devendra.planeteretail@gmail.com"
+                        method="POST">
+
+                        <input type="hidden" name="_captcha" value="false">
 
                         <div class="fields">
 
@@ -685,27 +689,70 @@
         ]
         }
 </script>
-<script>
+    <script>
 
-const urlParams = new URLSearchParams(window.location.search);
+        const form = document.getElementById('contactForm');
 
-const status = urlParams.get('status');
+        form.addEventListener('submit', async function (e) {
 
-if (status === 'success') {
+            e.preventDefault();
 
-    document.getElementById('responseMsg').innerHTML =
-        '<div class="success-msg">Message sent successfully!</div>';
+            const formData = new FormData(form);
 
-}
+            const responseMsg = document.getElementById('responseMsg');
 
-if (status === 'error') {
+            try {
 
-    document.getElementById('responseMsg').innerHTML =
-        '<div class="error-msg">Message not sent. Try again!</div>';
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
 
-}
+                if (response.ok) {
 
-</script>
+                    responseMsg.innerHTML =
+                        `<div class="success-msg">
+                Message sent successfully!
+            </div>`;
+
+                    form.reset();
+
+                    setTimeout(() => {
+                        window.location.href = "/";
+                    }, 2000);
+
+                } else {
+
+                    responseMsg.innerHTML =
+                        `<div class="error-msg">
+                Message not sent. Try again!
+            </div>`;
+
+                    setTimeout(() => {
+                        window.location.href = "/";
+                    }, 2000);
+
+                }
+
+            } catch (error) {
+
+                responseMsg.innerHTML =
+                    `<div class="error-msg">
+            Something went wrong!
+        </div>`;
+
+                setTimeout(() => {
+                    window.location.href = "/";
+                }, 2000);
+
+            }
+
+        });
+
+    </script>
 </body>
 
 </html>
