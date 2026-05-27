@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://devendra-kumar1.vercel.app/sitemap.xml
