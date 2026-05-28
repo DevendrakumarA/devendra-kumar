@@ -40,7 +40,7 @@ section{
 }
 .about .about-content,
 .services .serv-content,
-.skills .skills-content,
+/* .skills .skills-content, */
 .contact .contact-content{
     display: flex;
     flex-wrap: wrap;
@@ -310,8 +310,9 @@ section .title::after{
     content: "what i know";
 }
 .skills .skills-content .column{
-    width: calc(50% - 30px);
+    /* width: calc(50% - 30px); */
 }
+ 
 .skills .skills-content .left .text{
     font-size: 20px;
     font-weight: 600;
@@ -376,6 +377,9 @@ section .title::after{
 .skills-content .right .php::before{
     width: 85%;
 }
+.skills-content .right .laravel::before{
+    width: 85%;
+}
 
 .skills-content .right .wordpress::before{
     width: 85%;
@@ -388,9 +392,12 @@ section .title::after{
 .skills-content .right .angular::before{
     width: 70%;
 }
+.skills-content .right .nodejs::before{
+    width: 50%;
+}
 
 .skills-content .right .mongodb::before{
-    width: 60%;
+    width: 40%;
 }
 /* teams section styling */
 .teams .title::after{
